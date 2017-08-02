@@ -4,7 +4,7 @@ LABEL maintainer="Tomas Kislan - https://kislan.sk"
 EXPOSE 22
 
 RUN apk add --no-cache openssh && \
-  sed -i s/"#AllowTcpForwarding yes"/"AllowTcpForwarding yes"/g /etc/ssh/sshd_config && \
+  sed -i s/"#GatewayPorts no"/"GatewayPorts yes"/g /etc/ssh/sshd_config && \
   adduser -D -s /bin/sh tunnel && \
   passwd -u tunnel >/dev/null 2>&1 && \
   chown -R tunnel:tunnel /home/tunnel && \
