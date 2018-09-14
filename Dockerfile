@@ -8,8 +8,11 @@ RUN apk add --no-cache openssh && \
   adduser -D -s /bin/sh tunnel && \
   passwd -u tunnel >/dev/null 2>&1 && \
   chown -R tunnel:tunnel /home/tunnel && \
-  mkdir -p /home/tunnel/.ssh
+  mkdir -p /home/tunnel/.ssh && \
+  touch /home/tunnel/.ssh/authorized_keys
 
 COPY entrypoint.sh /
+
+VOLUME ["/home/tunnel/.ssh"]
 
 ENTRYPOINT ["/entrypoint.sh"]
