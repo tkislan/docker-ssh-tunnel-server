@@ -1,4 +1,4 @@
-# Containerized SSH tunnel
+# Containerized SSH tunnel server
 
 To connect from local device
 ```
